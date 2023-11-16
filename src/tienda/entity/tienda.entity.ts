@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 
 import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
-import { ProductoEntity } from "../../producto/producto.entity/producto.entity";
+import { ProductoEntity } from "../../producto/entity/producto.entity";
 
 @Entity()
 export class TiendaEntity {

@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
-import { TiendaEntity } from "../../tienda/tienda.entity/tienda.entity";
+import { TiendaEntity } from "../../tienda/entity/tienda.entity";
 
 @Entity()
 export class ProductoEntity {

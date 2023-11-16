@@ -4,8 +4,8 @@ import { AppService } from './app.service';
 import { ProductoModule } from './producto/producto.module';
 import { TiendaModule } from './tienda/tienda.module';
 import { TypeOrmCoreModule } from '@nestjs/typeorm/dist/typeorm-core.module';
-import { ProductoEntity } from './producto/producto.entity/producto.entity';
-import { TiendaEntity } from './tienda/tienda.entity/tienda.entity';
+import { ProductoEntity } from './producto/entity/producto.entity';
+import { TiendaEntity } from './tienda/entity/tienda.entity';
 
 @Module({
   imports: [
