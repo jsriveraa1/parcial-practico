@@ -18,6 +18,7 @@ export class ProductoEntity {
   tipo: string;
 
   @ManyToMany(() => TiendaEntity, (tienda) => tienda.productos)
+  @JoinTable()
   tiendas: TiendaEntity[];
 
 }
