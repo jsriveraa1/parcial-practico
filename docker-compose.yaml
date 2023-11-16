@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  parcial_db:
+    container_name: parcial_db
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: parcial
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - parcial_db_vol:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER"]
+      interval: 2s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  parcial_db_vol:
