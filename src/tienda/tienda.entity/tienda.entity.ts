@@ -19,7 +19,6 @@ export class TiendaEntity {
   direccion: string;
 
   @ManyToMany(() => ProductoEntity, (producto) => producto.tiendas)
-  @JoinTable()
   productos: ProductoEntity[];
 
 }
