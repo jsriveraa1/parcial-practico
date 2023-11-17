@@ -124,7 +124,6 @@ describe('ProductoService', () => {
   });
 
   it('delete should throw an exception for an invalid product', async () => {
-    const product: ProductoEntity = productoList[0];
     await expect(() => service.delete('0')).rejects.toHaveProperty(
       'message',
       'El producto con el id buscado no se encontró',
