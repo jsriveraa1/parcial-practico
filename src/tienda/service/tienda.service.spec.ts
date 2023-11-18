@@ -84,6 +84,21 @@ describe('TiendaService', () => {
     expect(storedTienda.ciudad).toEqual(newTienda.ciudad);
   });
 
+  it('create should return a new tienda with invalid city', async () => {
+    const tienda: TiendaEntity = {
+      id: '',
+      nombre: faker.company.name(),
+      ciudad: faker.location.city(),
+      direccion: faker.location.streetAddress(),
+      productos: [],
+    };
+
+    await expect(() => service.create(tienda)).rejects.toHaveProperty(
+      'message',
+      'La ciudad no cumple con el código de 3 caracteres',
+    );
+  });
+
   it('update should modify a tienda', async () => {
     const tienda: TiendaEntity = tiendaList[0];
     tienda.nombre = 'New name';
@@ -109,6 +124,21 @@ describe('TiendaService', () => {
     await expect(() => service.update('0', tienda)).rejects.toHaveProperty(
       'message',
       'La tienda con el id buscado no se encontró',
+    );
+  });
+
+  it('update should throw an exception for an invalid city', async () => {
+    let tienda: TiendaEntity = tiendaList[0];
+    tienda = {
+      ...tienda,
+      nombre: 'New name',
+      ciudad: 'New direction',
+    };
+    await expect(() =>
+      service.update(tienda.id, tienda),
+    ).rejects.toHaveProperty(
+      'message',
+      'La ciudad no cumple con el código de 3 caracteres',
     );
   });
 
