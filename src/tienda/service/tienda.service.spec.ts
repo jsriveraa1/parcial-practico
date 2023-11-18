@@ -1,10 +1,10 @@
-import { Test, TestingModule } from "@nestjs/testing";
-import { TiendaService } from "./tienda.service";
-import { Repository } from "typeorm";
-import { TiendaEntity } from "../entity/tienda.entity";
-import { TypeOrmTestingConfig } from "../../shared/testing-utils/typeorm-testing-config";
-import { getRepositoryToken } from "@nestjs/typeorm";
-import { faker } from "@faker-js/faker";
+import { Test, TestingModule } from '@nestjs/testing';
+import { TiendaService } from './tienda.service';
+import { Repository } from 'typeorm';
+import { TiendaEntity } from '../entity/tienda.entity';
+import { TypeOrmTestingConfig } from '../../shared/testing-utils/typeorm-testing-config';
+import { getRepositoryToken } from '@nestjs/typeorm';
+import { faker } from '@faker-js/faker';
 
 describe('TiendaService', () => {
   let service: TiendaService;

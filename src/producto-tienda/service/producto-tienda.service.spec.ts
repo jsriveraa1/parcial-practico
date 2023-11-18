@@ -48,7 +48,7 @@ describe('TiendaProductoService', () => {
     productoEntity = await productoRepository.save({
       nombre: faker.commerce.productName(),
       precio: faker.number.int(),
-      tipo: faker.number.int({ min: 0, max: 1 }),
+      tipo: faker.helpers.arrayElement(['Perecedero', 'No perecedero']),
       tiendas: tiendaList,
     });
   };
@@ -67,7 +67,7 @@ describe('TiendaProductoService', () => {
     const newProducto: ProductoEntity = await productoRepository.save({
       nombre: faker.commerce.productName(),
       precio: faker.number.int(),
-      tipo: faker.number.int({ min: 0, max: 1 }),
+      tipo: faker.helpers.arrayElement(['Perecedero', 'No perecedero']),
     });
 
     const result: ProductoEntity = await service.addStoreToProduct(
@@ -86,7 +86,7 @@ describe('TiendaProductoService', () => {
     const newProducto: ProductoEntity = await productoRepository.save({
       nombre: faker.commerce.productName(),
       precio: faker.number.int(),
-      tipo: faker.number.int({ min: 0, max: 1 }),
+      tipo: faker.helpers.arrayElement(['Perecedero', 'No perecedero']),
     });
 
     await expect(() =>
@@ -108,7 +108,7 @@ describe('TiendaProductoService', () => {
       service.addStoreToProduct('0', newTienda.id),
     ).rejects.toHaveProperty(
       'message',
-      'El producto con el id no ha sido encontrada',
+      'El producto con el id no se encontró',
     );
   });
 
@@ -139,7 +139,7 @@ describe('TiendaProductoService', () => {
       service.findStoreFromProduct('0', tienda.id),
     ).rejects.toHaveProperty(
       'message',
-      'El producto con el id no ha sido encontrada',
+      'El producto con el id no se encontró',
     );
   });
 
@@ -171,7 +171,7 @@ describe('TiendaProductoService', () => {
       service.findStoresFromProduct('0'),
     ).rejects.toHaveProperty(
       'message',
-      'El producto con el id no ha sido encontrada',
+      'El producto con el id no se encontró',
     );
   });
 
@@ -202,7 +202,7 @@ describe('TiendaProductoService', () => {
       service.updateStoresFromProduct('0', [newTienda]),
     ).rejects.toHaveProperty(
       'message',
-      'El producto con el id no ha sido encontrada',
+      'El producto con el id no se encontró',
     );
   });
 
@@ -249,7 +249,7 @@ describe('TiendaProductoService', () => {
       service.deleteStoreFromProduct('0', tienda.id),
     ).rejects.toHaveProperty(
       'message',
-      'El producto con el id no ha sido encontrada',
+      'El producto con el id no se encontró',
     );
   });
 

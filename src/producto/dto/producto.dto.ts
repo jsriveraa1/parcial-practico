@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsIn, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class ProductoDto {
   @IsString()
@@ -11,5 +11,6 @@ export class ProductoDto {
 
   @IsString()
   @IsNotEmpty()
+  @IsIn(['Perecedero', 'No perecedero'])
   readonly tipo: string;
 }

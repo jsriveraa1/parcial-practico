@@ -8,6 +8,7 @@ import {
   Post,
   Put,
   UseInterceptors,
+  ValidationPipe,
 } from '@nestjs/common';
 import { ProductoService } from '../service/producto.service';
 import { BusinessErrorsInterceptor } from '../../shared/interceptors/business-errors/business-errors.interceptor';
@@ -31,7 +32,7 @@ export class ProductoController {
   }
 
   @Post()
-  async create(@Body() productDto: ProductoDto) {
+  async create(@Body(ValidationPipe) productDto: ProductoDto) {
     const producto: ProductoEntity = plainToInstance(
       ProductoEntity,
       productDto,

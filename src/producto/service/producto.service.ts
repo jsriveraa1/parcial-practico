@@ -35,10 +35,7 @@ export class ProductoService {
   }
 
   async create(producto: ProductoEntity): Promise<ProductoEntity> {
-    console.log('valor: ' + producto.tipo);
-    if (producto.tipo == 0 || producto.tipo == 1) {
-      return await this.productoRepository.save(producto);
-    }
+    return await this.productoRepository.save(producto);
   }
 
   async update(id: string, producto: ProductoEntity): Promise<ProductoEntity> {
@@ -50,12 +47,10 @@ export class ProductoService {
         BusinessError.NOT_FOUND,
       );
 
-    if (producto.tipo == 0 || producto.tipo == 1) {
-      return await this.productoRepository.save({
-        ...persistedProducto,
-        ...producto,
-      });
-    }
+    return await this.productoRepository.save({
+      ...persistedProducto,
+      ...producto,
+    });
   }
 
   async delete(id: string) {

@@ -31,7 +31,7 @@ describe('ProductoService', () => {
       const producto: ProductoEntity = await repository.save({
         nombre: faker.commerce.productName(),
         precio: faker.number.int(),
-        tipo: faker.number.int({ min: 0, max: 1 }),
+        tipo: faker.helpers.arrayElement(['Perecedero', 'No perecedero']),
       });
       productoList.push(producto);
     }
@@ -68,7 +68,7 @@ describe('ProductoService', () => {
       id: '',
       nombre: faker.commerce.productName(),
       precio: faker.number.int(),
-      tipo: faker.number.int({ min: 0, max: 1 }),
+      tipo: faker.helpers.arrayElement(['Perecedero', 'No perecedero']),
       tiendas: [],
     };
 
