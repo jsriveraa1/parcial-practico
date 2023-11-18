@@ -11,6 +11,9 @@ export class ProductoDto {
 
   @IsString()
   @IsNotEmpty()
-  @IsIn(['Perecedero', 'No perecedero'])
+  @IsIn(['Perecedero', 'No perecedero'], {
+    message:
+      'El tipo de producto proporcionado no es valido. Recuerde que los valores validos son: Perecedero y No perecedero',
+  })
   readonly tipo: string;
 }
