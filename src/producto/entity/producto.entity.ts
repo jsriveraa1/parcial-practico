@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 import { TiendaEntity } from "../../tienda/entity/tienda.entity";
+import { TipoProductoEnum } from "./tipo-producto.enum";
 
 @Entity()
 export class ProductoEntity {
@@ -15,7 +16,7 @@ export class ProductoEntity {
   precio: number;
 
   @Column()
-  tipo: string;
+  tipo: TipoProductoEnum;
 
   @ManyToMany(() => TiendaEntity, (tienda) => tienda.productos)
   @JoinTable()
