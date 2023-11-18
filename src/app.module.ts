@@ -6,6 +6,7 @@ import { TiendaModule } from './tienda/tienda.module';
 import { TypeOrmCoreModule } from '@nestjs/typeorm/dist/typeorm-core.module';
 import { ProductoEntity } from './producto/entity/producto.entity';
 import { TiendaEntity } from './tienda/entity/tienda.entity';
+import { ProductoTiendaModule } from './producto-tienda/producto-tienda.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { TiendaEntity } from './tienda/entity/tienda.entity';
       synchronize: true,
       keepConnectionAlive: true,
     }),
+    ProductoTiendaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
