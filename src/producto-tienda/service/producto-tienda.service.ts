@@ -37,7 +37,7 @@ export class ProductoTiendaService {
     });
     if (!product)
       throw new BusinessLogicException(
-        'El producto con el id no ha sido encontrada',
+        'El producto con el id no se encontró',
         BusinessError.NOT_FOUND,
       );
 
@@ -64,7 +64,7 @@ export class ProductoTiendaService {
     });
     if (!product)
       throw new BusinessLogicException(
-        'El producto con el id no ha sido encontrada',
+        'El producto con el id no se encontró',
         BusinessError.NOT_FOUND,
       );
 
@@ -88,7 +88,7 @@ export class ProductoTiendaService {
     });
     if (!product)
       throw new BusinessLogicException(
-        'El producto con el id no ha sido encontrada',
+        'El producto con el id no se encontró',
         BusinessError.NOT_FOUND,
       );
 
@@ -106,7 +106,7 @@ export class ProductoTiendaService {
 
     if (!product)
       throw new BusinessLogicException(
-        'El producto con el id no ha sido encontrada',
+        'El producto con el id no se encontró',
         BusinessError.NOT_FOUND,
       );
 
@@ -141,7 +141,7 @@ export class ProductoTiendaService {
     });
     if (!producto)
       throw new BusinessLogicException(
-        'El producto con el id no ha sido encontrada',
+        'El producto con el id no se encontró',
         BusinessError.NOT_FOUND,
       );
 

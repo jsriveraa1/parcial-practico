@@ -16,7 +16,7 @@ export class ProductoEntity {
   precio: number;
 
   @Column()
-  tipo: TipoProductoEnum;
+  tipo: string;
 
   @ManyToMany(() => TiendaEntity, (tienda) => tienda.productos)
   @JoinTable()

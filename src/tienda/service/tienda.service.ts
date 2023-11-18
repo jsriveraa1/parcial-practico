@@ -35,11 +35,13 @@ export class TiendaService {
   }
 
   async create(tienda: TiendaEntity): Promise<TiendaEntity> {
-    console.log('valor ciudad: ' + tienda.ciudad);
-    console.log('valor: ' + this.validarCiudad(tienda.ciudad));
     if (this.validarCiudad(tienda.ciudad)) {
       return await this.tiendaRepository.save(tienda);
     }
+    throw new BusinessLogicException(
+      'La ciudad no cumple con el código de 3 caracteres',
+      BusinessError.PRECONDITION_FAILED,
+    );
   }
 
   async update(id: string, tienda: TiendaEntity): Promise<TiendaEntity> {
@@ -58,6 +60,10 @@ export class TiendaService {
         ...tienda,
       });
     }
+    throw new BusinessLogicException(
+      'La ciudad no cumple con el código de 3 caracteres',
+      BusinessError.PRECONDITION_FAILED,
+    );
   }
 
   async delete(id: string) {
